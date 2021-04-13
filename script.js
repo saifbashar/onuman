@@ -63,6 +63,7 @@ document.querySelector('.check').addEventListener('click', function () {
   }
   //! when number is too low
   else if (guess < randomNumber) {
+    document.querySelector('body').style.backgroundColor = 'grey';
     document.querySelector('.message').textContent = 'Too Low 🦄';
     document.querySelector('.header').textContent = 'Sorry ' + name+'!';
     if (score > 1) {
