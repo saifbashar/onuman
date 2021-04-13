@@ -26,7 +26,7 @@ function typeWritter() {
 }
 typeWritter();
 */
-
+let name = prompt("Enter your name:");
 let highScore = 0;
 let randomNumber = Math.trunc(Math.random() * 100) + 1;
 console.log(randomNumber);
@@ -42,6 +42,7 @@ document.querySelector('.check').addEventListener('click', function () {
   //! when players win the game
   else if (guess === randomNumber) {
     document.querySelector('.message').textContent = 'Currect Number😎';
+    document.querySelector('.header').textContent = 'Congratulations ' + name;
     document.querySelector('body').style.backgroundColor = 'green';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = randomNumber;
@@ -50,6 +51,7 @@ document.querySelector('.check').addEventListener('click', function () {
   //! when number is too high
   else if (guess > randomNumber) {
     document.querySelector('.message').textContent = 'Too High ☹';
+    document.querySelector('.header').textContent = 'Sorry ' + name+'!';
     document.querySelector('body').style.backgroundColor = 'red';
     if (score > 1) {
       score--;
@@ -62,6 +64,7 @@ document.querySelector('.check').addEventListener('click', function () {
   //! when number is too low
   else if (guess < randomNumber) {
     document.querySelector('.message').textContent = 'Too Low 🦄';
+    document.querySelector('.header').textContent = 'Sorry ' + name+'!';
     if (score > 1) {
       score--;
       document.querySelector('.score').textContent = score;
@@ -73,13 +76,13 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 
 document.querySelector('.again').addEventListener('click', function () {
+  document.querySelector('.header').textContent = 'Guess My Number!';
   document.querySelector('.number').textContent = '?';
   document.querySelector('.score').textContent = '20';
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
   document.querySelector('.guess').value = '';
   randomNumber = Math.trunc(Math.random() * 100) + 1;
-  console.log(randomNumber);
   if (score > highScore) {
     highScore = score;
     document.querySelector('.highscore').textContent = highScore;
